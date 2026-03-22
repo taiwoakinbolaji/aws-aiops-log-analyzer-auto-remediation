@@ -1,0 +1,116 @@
+# ============================================================================
+# TERRAFORM VARIABLES - Example Configuration
+# ============================================================================
+# Copy this file to terraform.tfvars and update with your values
+# cp terraform.tfvars.example terraform.tfvars
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# REQUIRED: Slack Webhook URL
+# ----------------------------------------------------------------------------
+# Get this from: https://api.slack.com/messaging/webhooks
+# Example: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX
+
+slack_webhook_url = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX"
+
+# ----------------------------------------------------------------------------
+# GENERAL CONFIGURATION
+# ----------------------------------------------------------------------------
+
+aws_region   = "us-east-1"
+project_name = "aiops-log-analyzer"
+environment  = "dev"  
+
+# ----------------------------------------------------------------------------
+# MONITORING CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# Lambda functions with this tag will be monitored
+monitored_lambda_tag_key   = "aiops-monitor"
+monitored_lambda_tag_value = "true"
+
+# ----------------------------------------------------------------------------
+# AI ANALYSIS CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# Confidence threshold for auto-remediation (0-1)
+# Higher = more conservative (fewer auto-fixes)
+# Lower = more aggressive (more auto-fixes, higher risk)
+confidence_threshold = 0.85
+
+# Enable/disable automatic remediation
+# Set to false for monitoring-only mode
+auto_remediate = true
+
+# Maximum log lines to send to Claude for analysis
+# More lines = better context but higher cost
+max_log_lines = 50
+
+# Bedrock model ID
+bedrock_model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
+
+# ----------------------------------------------------------------------------
+# LAMBDA CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# Analyzer Lambda settings
+analyzer_memory_size = 512   # MB (128-10240)
+analyzer_timeout     = 300   # Seconds (60-900)
+
+# Remediator Lambda settings
+remediator_memory_size = 256  # MB (128-10240)
+remediator_timeout     = 600  # Seconds (60-900)
+
+# ----------------------------------------------------------------------------
+# REMEDIATION CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# Dry-run mode: simulate remediation without applying changes
+# Set to true for testing
+dry_run = false
+
+# Limits for Lambda memory remediation
+max_lambda_memory_size = 10240  # MB (max allowed)
+min_lambda_memory_size = 128    # MB (min allowed)
+
+# ----------------------------------------------------------------------------
+# STORAGE CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# DynamoDB TTL for incident records (days)
+incident_retention_days = 30
+
+# Enable point-in-time recovery for DynamoDB
+# Recommended for production
+enable_point_in_time_recovery = false
+
+# CloudWatch Logs retention (days)
+# Options: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 3653
+log_retention_days = 7
+
+# ----------------------------------------------------------------------------
+# NOTIFICATION CONFIGURATION
+# ----------------------------------------------------------------------------
+
+# Optional: Email for SNS notifications
+# Leave empty to disable email notifications
+notification_email = "ops-team@example.com"
+# notification_email = "ops-team@example.com"
+
+# ----------------------------------------------------------------------------
+# LOGGING & DEBUGGING
+# ----------------------------------------------------------------------------
+
+# Log level for Lambda functions
+# Options: DEBUG, INFO, WARNING, ERROR
+log_level = "INFO"
+
+# ----------------------------------------------------------------------------
+# COST OPTIMIZATION
+# ----------------------------------------------------------------------------
+
+# Enable cost monitoring alerts
+enable_cost_alerts = true
+
+# Monthly budget for cost alerts (USD)
+monthly_budget_usd = 100

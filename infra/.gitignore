@@ -1,0 +1,49 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Terraform variable files (may contain sensitive data)
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Lambda deployment packages (generated artifacts)
+lambda_*_placeholder.zip
+*.zip
+
+# Sensitive files
+*.pem
+*.key
+secrets.tf
+.env
+.envrc
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python artifacts (if using data sources or providers with Python)
+__pycache__/
+*.pyc
+*.pyo

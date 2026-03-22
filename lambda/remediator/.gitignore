@@ -1,0 +1,25 @@
+# Lambda deployment artifacts
+*.zip
+package/
+__pycache__/
+*.pyc
+*.pyo
+
+# Python virtual environments
+venv/
+env/
+.venv/
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary test files
+/tmp/
+*.tmp
+response.json
+test_response.json

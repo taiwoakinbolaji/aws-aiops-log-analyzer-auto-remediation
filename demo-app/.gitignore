@@ -1,0 +1,27 @@
+# Lambda deployment artifacts
+*.zip
+demo-app-package.zip
+
+# Terraform artifacts
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary test files
+response.json
+test_response.json
