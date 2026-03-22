@@ -2,7 +2,7 @@
 
 An AIOps project for detecting Lambda failures from CloudWatch alarms, analyzing recent error logs with Amazon Bedrock, and auto-remediating supported out-of-memory incidents by increasing Lambda memory.
 
-For the fastest end-to-end setup, see [docs/QUICKSTART.md](/Users/mrtaiwo/Desktop/mvp/aiops/intelligent-log-analyzer-new/docs/QUICKSTART.md).
+For the fastest end-to-end setup, see [docs/QUICKSTART.md](https://github.com/taiwoakinbolaji/aws-aiops-log-analyzer-auto-remediation/blob/main/docs/QUICKSTART.md).
 
 ## Overview
 
